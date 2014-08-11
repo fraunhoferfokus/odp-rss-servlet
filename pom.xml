@@ -12,7 +12,7 @@
 	<packaging>war</packaging>
 	<name>rss-servlet</name>
 	<scm>
-		<developerConnection>scm:git:git://github.com:fraunhoferfokus/odp-rss-servlet.git</developerConnection>
+		<developerConnection>scm:git:git://gitlab.fokus.fraunhofer.de:odp-rss-servlet1.1.0</developerConnection>
 	</scm>
 	<properties>
 		<jersey.version>1.17</jersey.version>
@@ -57,7 +57,8 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>${project.artifactId}-${project.version}-${buildNumber}</finalName>
+		<!-- <finalName>${project.artifactId}-${project.version}-${buildNumber}</finalName> -->
+		<finalName>${project.artifactId}</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>

@@ -129,7 +129,7 @@ public class RSSService {
 
         Feed feed = AbderaSupport.getAbdera().getFactory().newFeed();
 
-        feed.setId("tag:www.govdata.de," + cal.get(Calendar.YEAR) + ":/govdata/comments");
+        feed.setId("tag:localhost:8080," + cal.get(Calendar.YEAR) + ":/govdata/comments");
         feed.setTitle("GovData Kommentare zu Metadatenbeschreibungen");
         feed.setUpdated(date);
         feed.addAuthor("GovData.de");
@@ -139,8 +139,8 @@ public class RSSService {
         int i = 1;
         for (CommentaryEntity comment : queryResults) {
             Entry entry = feed.addEntry();
-            entry.setId("tag:www.govdata.de," + cal.get(Calendar.YEAR) + ":/govdata/comments/entries" + i);
-            entry.setTitle("Kommentar zu https://www.govdata.de/web/guest/daten/-/details/" + comment.getMetadataname());
+            entry.setId("tag:localhost:8080," + cal.get(Calendar.YEAR) + ":/govdata/comments/entries" + i);
+            entry.setTitle("Kommentar zu http://localhost:8080/web/guest/daten/-/details/" + comment.getMetadataname());
             entry.setPublished(comment.getCreated());
             entry.setUpdated(comment.getCreated());
             entry.addAuthor(comment.getLiferayScreenName());
@@ -153,8 +153,8 @@ public class RSSService {
             sb.append("</div>");
 
             sb.append("<div>");
-            sb.append("<a href=\"https://www.govdata.de/web/guest/daten/-/details/" + comment.getMetadataname()
-                    + "\">https://www.govdata.de/web/guest/daten/-/details/" + comment.getMetadataname() + "</a>");
+            sb.append("<a href=\"http://localhost:8080/web/guest/daten/-/details/" + comment.getMetadataname()
+                    + "\">http://localhost:8080/web/guest/daten/-/details/" + comment.getMetadataname() + "</a>");
             sb.append("</div>");
 
             entry.setContentAsHtml(sb.toString());
